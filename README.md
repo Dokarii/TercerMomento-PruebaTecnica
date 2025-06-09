@@ -1,6 +1,6 @@
-# PixelHub Subscription Manager
+# SubZen Subscription Manager
 
-Una aplicación web moderna y funcional para gestionar suscripciones digitales, desarrollada como prueba técnica para el cargo de Desarrollador Front-End Junior en PixelHub S.A.S.
+Una aplicación web moderna y funcional para gestionar suscripciones digitales, desarrollada como prueba técnica para el cargo de Desarrollador Front-End Junior en SubZen S.A.S.
 
 ## 🚀 Características Principales
 
@@ -73,7 +73,7 @@ src/
 1. **Clonar el repositorio**
 ```bash
 git clone <url-del-repositorio>
-cd pixelhub-subscription-manager
+cd SubZen-subscription-manager
 ```
 
 2. **Instalar dependencias**
@@ -108,8 +108,8 @@ http://localhost:5173
 
 La aplicación incluye cuentas de demostración:
 
-- **Administrador**: `admin@pixelhub.com` / `admin123`
-- **Usuario Demo**: `demo@pixelhub.com` / `demo123`
+- **Administrador**: `admin@SubZen.com` / `admin123`
+- **Usuario Demo**: `demo@SubZen.com` / `demo123`
 
 ## 🎨 Diseño y UX
 
@@ -249,7 +249,7 @@ npm run build
 
 ## 👨‍💻 Autor
 
-**Desarrollado para PixelHub S.A.S**  
+**Desarrollado para SubZen S.A.S**  
 Prueba técnica - Desarrollador Front-End Junior
 
 ---
