@@ -10,22 +10,22 @@ interface SubscriptionCardProps {
 
 const getCategoryColor = (category: string) => {
   const colors = {
-    Entretenimiento: "bg-red-100 text-red-800 border-red-200",
-    Musica: "bg-green-100 text-green-800 border-green-200",
-    Diseño: "bg-purple-100 text-purple-800 border-purple-200",
-    Productividad: "bg-blue-100 text-blue-800 border-blue-200",
-    Gaming: "bg-orange-100 text-orange-800 border-orange-200",
-    Educacion: "bg-indigo-100 text-indigo-800 border-indigo-200",
-    Otro: "bg-gray-100 text-gray-800 border-gray-200",
+    Entretenimiento: 'bg-red-100 text-red-800 border-red-200',
+    Musica: 'bg-green-100 text-green-800 border-green-200',
+    Diseño: 'bg-purple-100 text-purple-800 border-purple-200',
+    Productividad: 'bg-blue-100 text-blue-800 border-blue-200',
+    Gaming: 'bg-orange-100 text-orange-800 border-orange-200',
+    Educacion: 'bg-indigo-100 text-indigo-800 border-indigo-200',
+    Otro: 'bg-gray-100 text-gray-800 border-gray-200',
   };
   return colors[category as keyof typeof colors] || colors.Otro;
 };
 
 const getStatusColor = (status: string) => {
   const colors = {
-    active: "bg-green-100 text-green-800",
-    inactive: "bg-yellow-100 text-yellow-800",
-    cancelled: "bg-red-100 text-red-800",
+    active: 'bg-green-100 text-green-800',
+    inactive: 'bg-yellow-100 text-yellow-800',
+    cancelled: 'bg-red-100 text-red-800',
   };
   return colors[status as keyof typeof colors] || colors.active;
 };

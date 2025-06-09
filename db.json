@@ -2,44 +2,24 @@
   "users": [
     {
       "id": 1,
-      "email": "admin@pixelhub.com",
-      "password": "admin123",
-      "name": "Admin User"
+      "email": "jaime@example.com",
+      "password": "hashed_password",
+      "name": "Jaime Zapata"
     },
     {
-      "id": 2,
-      "email": "demo@pixelhub.com",
-      "password": "demo123",
-      "name": "Demo User"
+      "email": "dokari@gmail.com",
+      "password": "123456",
+      "name": "Ricardo",
+      "id": 3
     }
   ],
   "subscriptions": [
-    {
-      "userId": 1,
-      "name": "Spotify Premium",
-      "cost": 9.99,
-      "category": "Music",
-      "renewalDate": "2024-01-28",
-      "status": "active",
-      "description": "Servicio de streaming de música",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "name": "Adobe Creative Cloud",
-      "cost": 52.99,
-      "category": "Design",
-      "renewalDate": "2024-03-10",
-      "status": "active",
-      "description": "Paquete de diseño",
-      "id": 3
-    },
     {
       "id": 4,
       "userId": 2,
       "name": "Disney+",
       "cost": 7.99,
-      "category": "Entertainment",
+      "category": "Entretenimiento",
       "renewalDate": "2024-02-20",
       "status": "active",
       "description": "Disney streaming service"
@@ -47,22 +27,32 @@
     {
       "userId": 1,
       "name": "Netflix",
-      "cost": 20,
-      "category": "Entertainment",
-      "renewalDate": "2025-07-10",
-      "status": "active",
+      "cost": 9.99,
+      "category": "Entretenimiento",
+      "renewalDate": "2025-06-15",
+      "status": "inactive",
       "description": "",
-      "id": 5
+      "id": 6
     },
     {
       "userId": 1,
+      "name": "Spotify Premium",
+      "cost": 3.8,
+      "category": "Musica",
+      "renewalDate": "2025-06-21",
+      "status": "active",
+      "description": "Aplicación de streaming de música",
+      "id": 7
+    },
+    {
+      "userId": 3,
       "name": "Netflix",
-      "cost": 9.99,
-      "category": "Other",
-      "renewalDate": "2025-06-15",
+      "cost": 2500,
+      "category": "Entretenimiento",
+      "renewalDate": "2025-04-15",
       "status": "active",
       "description": "",
-      "id": 6
+      "id": 8
     }
   ]
 }
