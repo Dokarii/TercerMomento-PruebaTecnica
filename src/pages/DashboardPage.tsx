@@ -250,7 +250,7 @@ export const DashboardPage = (): JSX.Element => {
             </h3>
             <p className="text-gray-500 mb-6">
               {searchTerm || selectedCategory !== "All"
-                ? "Try adjusting your search or filter criteria."
+                ? "Intente cambiar o reiniciar los filtros"
                 : "Comience agregando su primera suscripción."}
             </p>
             {!searchTerm && selectedCategory === "All" && (

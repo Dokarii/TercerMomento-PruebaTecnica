@@ -15,16 +15,6 @@
   ],
   "subscriptions": [
     {
-      "id": 4,
-      "userId": 2,
-      "name": "Disney+",
-      "cost": 7.99,
-      "category": "Entretenimiento",
-      "renewalDate": "2024-02-20",
-      "status": "active",
-      "description": "Disney streaming service"
-    },
-    {
       "userId": 1,
       "name": "Netflix",
       "cost": 9.99,
@@ -43,16 +33,6 @@
       "status": "active",
       "description": "Aplicación de streaming de música",
       "id": 7
-    },
-    {
-      "userId": 3,
-      "name": "Netflix",
-      "cost": 2500,
-      "category": "Entretenimiento",
-      "renewalDate": "2025-04-15",
-      "status": "active",
-      "description": "",
-      "id": 8
     }
   ]
 }
