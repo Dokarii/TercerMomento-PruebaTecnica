@@ -23,8 +23,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <CreditCard className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">PixelHub</h1>
-                <p className="text-sm text-gray-500">Subscription Manager</p>
+                <h1 className="text-xl font-bold text-gray-900">SubZen</h1>
+                <p className="text-sm text-gray-500">Aministrar suscripciones</p>
               </div>
             </div>
             
@@ -38,7 +38,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200"
               >
                 <LogOut className="h-4 w-4" />
-                <span>Logout</span>
+                <span>Salir</span>
               </button>
             </div>
           </div>

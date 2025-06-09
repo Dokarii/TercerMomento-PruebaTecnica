@@ -65,7 +65,7 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
             </span>
             {isExpiringSoon() && (
               <span className="px-3 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-800">
-                Expires Soon
+                Expira pronto
               </span>
             )}
           </div>

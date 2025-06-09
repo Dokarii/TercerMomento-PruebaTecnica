@@ -32,7 +32,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   const [formData, setFormData] = useState({
     name: '',
     cost: '',
-    category: 'Other',
+    category: 'Otro',
     renewalDate: '',
     status: 'active' as 'active' | 'inactive' | 'cancelled',
     description: '',
@@ -101,7 +101,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Service Name *
+              Nombre del servicio
             </label>
             <input
               type="text"
@@ -118,7 +118,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="cost" className="block text-sm font-medium text-gray-700 mb-2">
-                Monthly Cost * ($)
+                Costo mensual ($)
               </label>
               <input
                 type="number"
@@ -136,7 +136,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
             <div>
               <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                Category *
+                Categoría
               </label>
               <select
                 name="category"
@@ -158,7 +158,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="renewalDate" className="block text-sm font-medium text-gray-700 mb-2">
-                Renewal Date *
+                Renovación
               </label>
               <input
                 type="date"
@@ -194,7 +194,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
           <div>
             <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-              Description (Optional)
+              Descripción (Optional)
             </label>
             <textarea
               name="description"
@@ -213,7 +213,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               onClick={onClose}
               className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200"
             >
-              Cancel
+              Cancelar
             </button>
             <button
               type="submit"
