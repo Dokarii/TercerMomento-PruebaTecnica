@@ -247,9 +247,8 @@ npm run build
 - [x] Context para estado global
 - [x] Types para definiciones TypeScript
 
-## 👨‍💻 Autor
-
-**Desarrollado para SubZen S.A.S**  
+## 👨‍💻 Ricardo Tejedor Anaya
+  
 Prueba técnica - Desarrollador Front-End Junior
 
 ---
