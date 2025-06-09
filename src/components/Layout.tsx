@@ -1,6 +1,6 @@
-import React from 'react';
-import { useAuth } from '../context/AuthContext';
-import { LogOut, User, CreditCard } from 'lucide-react';
+import React from "react";
+import { useAuth } from "../context/AuthContext";
+import { LogOut, User, CreditCard } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,10 +24,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">SubZen</h1>
-                <p className="text-sm text-gray-500">Aministrar suscripciones</p>
+                <p className="text-sm text-gray-500">
+                  Aministrar suscripciones
+                </p>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-gray-700">
                 <User className="h-4 w-4" />
@@ -44,7 +46,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </header>
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {children}
       </main>

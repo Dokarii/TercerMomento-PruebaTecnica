@@ -1,25 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { Layout } from '../components/Layout';
-import { SubscriptionCard } from '../components/SubscriptionCard';
-import { SubscriptionModal } from '../components/SubscriptionModal';
-import { useAuth } from '../context/AuthContext';
-import { Subscription } from '../types';
-import { api } from '../services/api';
-import { Plus, Search, Filter, DollarSign, Calendar, TrendingUp } from 'lucide-react';
-import Swal from 'sweetalert2';
-import { JSX } from 'react/jsx-runtime';
+import React, { useEffect, useState } from "react";
+import { Layout } from "../components/Layout";
+import { SubscriptionCard } from "../components/SubscriptionCard";
+import { SubscriptionModal } from "../components/SubscriptionModal";
+import { useAuth } from "../context/AuthContext";
+import { Subscription } from "../types";
+import { api } from "../services/api";
+import {
+  Plus,
+  Search,
+  Filter,
+  DollarSign,
+  Calendar,
+  TrendingUp,
+} from "lucide-react";
+import Swal from "sweetalert2";
+import { JSX } from "react/jsx-runtime";
 
 export const DashboardPage = (): JSX.Element => {
   const { user } = useAuth();
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
-  const [filteredSubscriptions, setFilteredSubscriptions] = useState<Subscription[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [filteredSubscriptions, setFilteredSubscriptions] = useState<
+    Subscription[]
+  >([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingSubscription, setEditingSubscription] = useState<Subscription | undefined>();
+  const [editingSubscription, setEditingSubscription] = useState<
+    Subscription | undefined
+  >();
   const [isLoading, setIsLoading] = useState(true);
 
-  const categories = ['Todas', 'Entretenimiento', 'Musica', 'Diseño', 'Productividad', 'Gaming', 'Educacion', 'Otro'];
+  const categories = [
+    "Todas",
+    "Entretenimiento",
+    "Musica",
+    "Diseño",
+    "Productividad",
+    "Gaming",
+    "Educacion",
+    "Otro",
+  ];
 
   useEffect(() => {
     loadSubscriptions();
@@ -36,8 +56,8 @@ export const DashboardPage = (): JSX.Element => {
       const data = await api.getSubscriptions(user.id);
       setSubscriptions(data);
     } catch (error) {
-      console.error('Error al cargar suscripciones:', error);
-      Swal.fire('Error', 'Error al cargar suscripciones:', 'error');
+      console.error("Error al cargar suscripciones:", error);
+      Swal.fire("Error", "Error al cargar suscripciones:", "error");
     } finally {
       setIsLoading(false);
     }
@@ -47,36 +67,39 @@ export const DashboardPage = (): JSX.Element => {
     let filtered = subscriptions;
 
     if (searchTerm) {
-      filtered = filtered.filter(sub =>
-        sub.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        sub.category.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter(
+        (sub) =>
+          sub.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          sub.category.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    if (selectedCategory !== 'Todas') {
-      filtered = filtered.filter(sub => sub.category === selectedCategory);
+    if (selectedCategory !== "Todas") {
+      filtered = filtered.filter((sub) => sub.category === selectedCategory);
     }
 
     setFilteredSubscriptions(filtered);
   };
 
-  const handleSaveSubscription = async (subscriptionData: Omit<Subscription, 'id'>) => {
+  const handleSaveSubscription = async (
+    subscriptionData: Omit<Subscription, "id">
+  ) => {
     try {
       if (editingSubscription) {
         await api.updateSubscription(editingSubscription.id!, {
           ...subscriptionData,
           id: editingSubscription.id,
         });
-        Swal.fire('Listo', 'Suscripción actualizada correctamente!', 'success');
+        Swal.fire("Listo", "Suscripción actualizada correctamente!", "success");
       } else {
         await api.createSubscription(subscriptionData);
-        Swal.fire('Listo', 'Suscripción añadida correctamente!', 'success');
+        Swal.fire("Listo", "Suscripción añadida correctamente!", "success");
       }
       loadSubscriptions();
       setEditingSubscription(undefined);
     } catch (error) {
-      console.error('Error al guardar suscripción:', error);
-      Swal.fire('Error', 'Error al guardar suscripción', 'error');
+      console.error("Error al guardar suscripción:", error);
+      Swal.fire("Error", "Error al guardar suscripción", "error");
     }
   };
 
@@ -87,39 +110,39 @@ export const DashboardPage = (): JSX.Element => {
 
   const handleDeleteSubscription = async (id: number) => {
     const result = await Swal.fire({
-      title: 'Estás seguro?',
+      title: "Estás seguro?",
       text: "No pdrás revertir esta acción",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#ef4444',
-      cancelButtonColor: '#6b7280',
-      confirmButtonText: 'Sí, eliminar',
+      confirmButtonColor: "#ef4444",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Sí, eliminar",
     });
 
     if (result.isConfirmed) {
       try {
         await api.deleteSubscription(id);
         loadSubscriptions();
-        Swal.fire('Eliminado', 'La suscripción ha sido eliminada', 'success');
+        Swal.fire("Eliminado", "La suscripción ha sido eliminada", "success");
       } catch (error) {
-        console.error('Error al eliminar suscripción.', error);
-        Swal.fire('Error', 'Error al eliminar suscripción.', 'error');
+        console.error("Error al eliminar suscripción.", error);
+        Swal.fire("Error", "Error al eliminar suscripción.", "error");
       }
     }
   };
 
   const totalMonthlyCost = subscriptions
-    .filter(sub => sub.status === 'active')
+    .filter((sub) => sub.status === "active")
     .reduce((sum, sub) => sum + sub.cost, 0);
 
   const totalYearlyCost = totalMonthlyCost * 12;
 
-  const upcomingRenewals = subscriptions.filter(sub => {
+  const upcomingRenewals = subscriptions.filter((sub) => {
     const renewalDate = new Date(sub.renewalDate);
     const today = new Date();
     const diffTime = renewalDate.getTime() - today.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays <= 7 && diffDays > 0 && sub.status === 'active';
+    return diffDays <= 7 && diffDays > 0 && sub.status === "active";
   }).length;
 
   return (
@@ -130,8 +153,12 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Gastos por mes</p>
-                <p className="text-2xl font-bold">${totalMonthlyCost.toFixed(2)}</p>
+                <p className="text-blue-100 text-sm font-medium">
+                  Gastos por mes
+                </p>
+                <p className="text-2xl font-bold">
+                  ${totalMonthlyCost.toFixed(2)}
+                </p>
               </div>
               <DollarSign className="h-8 w-8 text-blue-200" />
             </div>
@@ -140,8 +167,12 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-emerald-100 text-sm font-medium">Gasto anual</p>
-                <p className="text-2xl font-bold">${totalYearlyCost.toFixed(2)}</p>
+                <p className="text-emerald-100 text-sm font-medium">
+                  Gasto anual
+                </p>
+                <p className="text-2xl font-bold">
+                  ${totalYearlyCost.toFixed(2)}
+                </p>
               </div>
               <TrendingUp className="h-8 w-8 text-emerald-200" />
             </div>
@@ -150,7 +181,9 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Pronta renovación</p>
+                <p className="text-orange-100 text-sm font-medium">
+                  Sigueinte renovación
+                </p>
                 <p className="text-2xl font-bold">{upcomingRenewals}</p>
               </div>
               <Calendar className="h-8 w-8 text-orange-200" />
@@ -212,13 +245,15 @@ export const DashboardPage = (): JSX.Element => {
             <div className="text-gray-400 mb-4">
               <Calendar className="h-12 w-12 mx-auto" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No se encontraron suscripciones</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              No se encontraron suscripciones
+            </h3>
             <p className="text-gray-500 mb-6">
-              {searchTerm || selectedCategory !== 'All'
-                ? 'Try adjusting your search or filter criteria.'
-                : 'Get started by adding your first subscription.'}
+              {searchTerm || selectedCategory !== "All"
+                ? "Try adjusting your search or filter criteria."
+                : "Comience agregando su primera suscripción."}
             </p>
-            {!searchTerm && selectedCategory === 'All' && (
+            {!searchTerm && selectedCategory === "All" && (
               <button
                 onClick={() => {
                   setEditingSubscription(undefined);

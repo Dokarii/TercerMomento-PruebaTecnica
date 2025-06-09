@@ -1,6 +1,6 @@
-import React from 'react';
-import { Subscription } from '../types';
-import { Calendar, DollarSign, Edit3, Trash2 } from 'lucide-react';
+import React from "react";
+import { Subscription } from "../types";
+import { Calendar, DollarSign, Edit3, Trash2 } from "lucide-react";
 
 interface SubscriptionCardProps {
   subscription: Subscription;
@@ -10,22 +10,22 @@ interface SubscriptionCardProps {
 
 const getCategoryColor = (category: string) => {
   const colors = {
-    Entertainment: 'bg-red-100 text-red-800 border-red-200',
-    Music: 'bg-green-100 text-green-800 border-green-200',
-    Design: 'bg-purple-100 text-purple-800 border-purple-200',
-    Productivity: 'bg-blue-100 text-blue-800 border-blue-200',
-    Gaming: 'bg-orange-100 text-orange-800 border-orange-200',
-    Education: 'bg-indigo-100 text-indigo-800 border-indigo-200',
-    Other: 'bg-gray-100 text-gray-800 border-gray-200',
+    Entertainment: "bg-red-100 text-red-800 border-red-200",
+    Music: "bg-green-100 text-green-800 border-green-200",
+    Design: "bg-purple-100 text-purple-800 border-purple-200",
+    Productivity: "bg-blue-100 text-blue-800 border-blue-200",
+    Gaming: "bg-orange-100 text-orange-800 border-orange-200",
+    Education: "bg-indigo-100 text-indigo-800 border-indigo-200",
+    Other: "bg-gray-100 text-gray-800 border-gray-200",
   };
   return colors[category as keyof typeof colors] || colors.Other;
 };
 
 const getStatusColor = (status: string) => {
   const colors = {
-    active: 'bg-green-100 text-green-800',
-    inactive: 'bg-yellow-100 text-yellow-800',
-    cancelled: 'bg-red-100 text-red-800',
+    active: "bg-green-100 text-green-800",
+    inactive: "bg-yellow-100 text-yellow-800",
+    cancelled: "bg-red-100 text-red-800",
   };
   return colors[status as keyof typeof colors] || colors.active;
 };
@@ -36,10 +36,10 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
   onDelete,
 }) => {
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+    return new Date(dateString).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
@@ -55,12 +55,22 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-all duration-200 group">
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">{subscription.name}</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            {subscription.name}
+          </h3>
           <div className="flex flex-wrap gap-2 mb-3">
-            <span className={`px-3 py-1 text-xs font-medium rounded-full border ${getCategoryColor(subscription.category)}`}>
+            <span
+              className={`px-3 py-1 text-xs font-medium rounded-full border ${getCategoryColor(
+                subscription.category
+              )}`}
+            >
               {subscription.category}
             </span>
-            <span className={`px-3 py-1 text-xs font-medium rounded-full ${getStatusColor(subscription.status)}`}>
+            <span
+              className={`px-3 py-1 text-xs font-medium rounded-full ${getStatusColor(
+                subscription.status
+              )}`}
+            >
               {subscription.status}
             </span>
             {isExpiringSoon() && (
@@ -70,7 +80,9 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
             )}
           </div>
           {subscription.description && (
-            <p className="text-sm text-gray-600 mb-3">{subscription.description}</p>
+            <p className="text-sm text-gray-600 mb-3">
+              {subscription.description}
+            </p>
           )}
         </div>
         <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -97,7 +109,9 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
         </div>
         <div className="flex items-center space-x-2 text-gray-500">
           <Calendar className="h-4 w-4" />
-          <span className="text-sm">{formatDate(subscription.renewalDate)}</span>
+          <span className="text-sm">
+            {formatDate(subscription.renewalDate)}
+          </span>
         </div>
       </div>
     </div>

@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { Subscription } from '../types';
-import { X, Save } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Subscription } from "../types";
+import { X, Save } from "lucide-react";
 
 interface SubscriptionModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: (subscription: Omit<Subscription, 'id'>) => void;
+  onSave: (subscription: Omit<Subscription, "id">) => void;
   subscription?: Subscription;
   userId: number;
 }
 
 const categories = [
-  'Entretenimiento',
-  'Musica',
-  'Diseño',
-  'Productividad',
-  'Gaming',
-  'Educacion',
-  'Otro',
+  "Entretenimiento",
+  "Musica",
+  "Diseño",
+  "Productividad",
+  "Gaming",
+  "Educacion",
+  "Otro",
 ];
 
-const statuses = ['active', 'inactive', 'cancelled'];
+const statuses = ["active", "inactive", "cancelled"];
 
 export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   isOpen,
@@ -30,12 +30,12 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   userId,
 }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    cost: '',
-    category: 'Other',
-    renewalDate: '',
-    status: 'active' as 'active' | 'inactive' | 'cancelled',
-    description: '',
+    name: "",
+    cost: "",
+    category: "Other",
+    renewalDate: "",
+    status: "active" as "active" | "inactive" | "cancelled",
+    description: "",
   });
 
   useEffect(() => {
@@ -46,16 +46,16 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
         category: subscription.category,
         renewalDate: subscription.renewalDate,
         status: subscription.status,
-        description: subscription.description || '',
+        description: subscription.description || "",
       });
     } else {
       setFormData({
-        name: '',
-        cost: '',
-        category: 'Other',
-        renewalDate: '',
-        status: 'active',
-        description: '',
+        name: "",
+        cost: "",
+        category: "Other",
+        renewalDate: "",
+        status: "active",
+        description: "",
       });
     }
   }, [subscription, isOpen]);
@@ -74,7 +74,11 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
     onClose();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -88,7 +92,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
       <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
-            {subscription ? 'Editar Suscripción' : 'Agregar Nueva Suscripción'}
+            {subscription ? "Editar Suscripción" : "Agregar Nueva Suscripción"}
           </h2>
           <button
             onClick={onClose}
@@ -100,7 +104,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Nombre del servicio
             </label>
             <input
@@ -117,7 +124,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="cost" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="cost"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Costo mensual ($)
               </label>
               <input
@@ -135,7 +145,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
             </div>
 
             <div>
-              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Categoría
               </label>
               <select
@@ -157,7 +170,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="renewalDate" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="renewalDate"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Renovación
               </label>
               <input
@@ -172,7 +188,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
             </div>
 
             <div>
-              <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="status"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Estado
               </label>
               <select
@@ -193,7 +212,10 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
           </div>
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Descripción (Opcional)
             </label>
             <textarea
@@ -220,7 +242,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               className="flex-1 bg-gradient-to-r from-blue-600 to-emerald-500 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-emerald-600 flex items-center justify-center space-x-2 transition-all duration-200"
             >
               <Save className="h-4 w-4" />
-              <span>{subscription ? 'Actualizar' : 'Guardar'}</span>
+              <span>{subscription ? "Actualizar" : "Guardar"}</span>
             </button>
           </div>
         </form>

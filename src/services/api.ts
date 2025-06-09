@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:3000';
+const API_BASE = "http://localhost:3000";
 
 export const api = {
   // Auth endpoints
@@ -7,11 +7,15 @@ export const api = {
     return response.json();
   },
 
-  async createUser(userData: { email: string; password: string; name: string }) {
+  async createUser(userData: {
+    email: string;
+    password: string;
+    name: string;
+  }) {
     const response = await fetch(`${API_BASE}/users`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
     });
@@ -26,9 +30,9 @@ export const api = {
 
   async createSubscription(subscriptionData: any) {
     const response = await fetch(`${API_BASE}/subscriptions`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(subscriptionData),
     });
@@ -37,9 +41,9 @@ export const api = {
 
   async updateSubscription(id: number, subscriptionData: any) {
     const response = await fetch(`${API_BASE}/subscriptions/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(subscriptionData),
     });
@@ -48,7 +52,7 @@ export const api = {
 
   async deleteSubscription(id: number) {
     const response = await fetch(`${API_BASE}/subscriptions/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
     return response.ok;
   },

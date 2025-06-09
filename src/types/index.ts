@@ -12,7 +12,7 @@ export interface Subscription {
   cost: number;
   category: string;
   renewalDate: string;
-  status: 'active' | 'inactive' | 'cancelled';
+  status: "active" | "inactive" | "cancelled";
   description?: string;
 }
 
