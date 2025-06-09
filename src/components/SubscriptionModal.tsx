@@ -117,7 +117,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               value={formData.name}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-              placeholder="ej. Netflix, Spotify, Adobe CC"
+              placeholder="ej. Netflix, Spotify..."
               required
             />
           </div>
@@ -139,7 +139,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
                 step="0.01"
                 min="0"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                placeholder="9.99"
+                placeholder="ej. 25,000"
                 required
               />
             </div>
