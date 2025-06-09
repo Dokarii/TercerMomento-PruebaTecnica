@@ -105,7 +105,7 @@ export const SubscriptionCard: React.FC<SubscriptionCardProps> = ({
         <div className="flex items-center space-x-2 text-green-600">
           <DollarSign className="h-4 w-4" />
           <span className="text-lg font-bold">${subscription.cost}</span>
-          <span className="text-sm text-gray-500">/month</span>
+          <span className="text-sm text-gray-500">/Mes</span>
         </div>
         <div className="flex items-center space-x-2 text-gray-500">
           <Calendar className="h-4 w-4" />

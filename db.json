@@ -33,6 +33,36 @@
       "status": "active",
       "description": "Aplicación de streaming de música",
       "id": 7
+    },
+    {
+      "userId": 3,
+      "name": "Spotify Premium",
+      "cost": 9300,
+      "category": "Musica",
+      "renewalDate": "2025-06-21",
+      "status": "active",
+      "description": "Aplicación de streaming para escuchar música",
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "name": "Crunchyroll",
+      "cost": 12900,
+      "category": "Entretenimiento",
+      "renewalDate": "2025-06-21",
+      "status": "active",
+      "description": "Aplicación de streaming ",
+      "id": 9
+    },
+    {
+      "userId": 3,
+      "name": "Max",
+      "cost": 12500,
+      "category": "Entretenimiento",
+      "renewalDate": "2025-06-21",
+      "status": "active",
+      "description": "App de streaming y series",
+      "id": 10
     }
   ]
 }
