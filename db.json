@@ -53,6 +53,16 @@
       "status": "active",
       "description": "",
       "id": 5
+    },
+    {
+      "userId": 1,
+      "name": "Netflix",
+      "cost": 9.99,
+      "category": "Other",
+      "renewalDate": "2025-06-15",
+      "status": "active",
+      "description": "",
+      "id": 6
     }
   ]
 }
