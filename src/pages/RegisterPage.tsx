@@ -48,7 +48,7 @@ export const RegisterPage: React.FC = () => {
     if (success) {
       navigate("/dashboard");
     } else {
-      setError("Registration failed. Email might already be in use.");
+      setError("Algo pasó, vuelvelo a intentar");
     }
     setIsLoading(false);
   };
@@ -77,7 +77,7 @@ export const RegisterPage: React.FC = () => {
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
-                Nombe Completo
+                Nombe
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -88,7 +88,7 @@ export const RegisterPage: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your full name"
+                  placeholder="Ingresa tu nombre"
                   required
                 />
               </div>
@@ -110,7 +110,7 @@ export const RegisterPage: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your email"
+                  placeholder="Ingresa tu email"
                   required
                 />
               </div>
@@ -132,7 +132,7 @@ export const RegisterPage: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Create a password"
+                  placeholder="Crea una contraseña de al menos 6 caracteres"
                   required
                 />
                 <button
@@ -165,7 +165,7 @@ export const RegisterPage: React.FC = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   className="w-full pl-12 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Confirm your password"
+                  placeholder="Confirma tu contraseña"
                   required
                 />
                 <button
