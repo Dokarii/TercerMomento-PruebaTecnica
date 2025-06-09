@@ -32,7 +32,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
   const [formData, setFormData] = useState({
     name: '',
     cost: '',
-    category: 'Otro',
+    category: 'Other',
     renewalDate: '',
     status: 'active' as 'active' | 'inactive' | 'cancelled',
     description: '',
@@ -88,7 +88,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
       <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-900">
-            {subscription ? 'Edit Subscription' : 'Add New Subscription'}
+            {subscription ? 'Editar Suscripción' : 'Agregar Nueva Suscripción'}
           </h2>
           <button
             onClick={onClose}
@@ -110,7 +110,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               value={formData.name}
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-              placeholder="e.g., Netflix, Spotify, Adobe CC"
+              placeholder="ej. Netflix, Spotify, Adobe CC"
               required
             />
           </div>
@@ -173,7 +173,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
             <div>
               <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
-                Status *
+                Estado
               </label>
               <select
                 name="status"
@@ -194,7 +194,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
 
           <div>
             <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-              Descripción (Optional)
+              Descripción (Opcional)
             </label>
             <textarea
               name="description"
@@ -203,7 +203,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               onChange={handleChange}
               rows={3}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-              placeholder="Brief description of the service..."
+              placeholder="Breve descripción del servicio..."
             />
           </div>
 
@@ -220,7 +220,7 @@ export const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
               className="flex-1 bg-gradient-to-r from-blue-600 to-emerald-500 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-emerald-600 flex items-center justify-center space-x-2 transition-all duration-200"
             >
               <Save className="h-4 w-4" />
-              <span>{subscription ? 'Update' : 'Save'}</span>
+              <span>{subscription ? 'Actualizar' : 'Guardar'}</span>
             </button>
           </div>
         </form>

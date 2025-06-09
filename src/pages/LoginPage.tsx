@@ -21,7 +21,7 @@ export const LoginPage: React.FC = () => {
     if (success) {
       navigate("/dashboard");
     } else {
-      setError("Invalid credentials. Please try again.");
+      setError("El usuario o la contraseña son incorrectos");
     }
     setIsLoading(false);
   };
