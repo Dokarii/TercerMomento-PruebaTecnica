@@ -248,9 +248,4 @@ npm run build
 - [x] Types para definiciones TypeScript
 
 ## 👨‍💻 Ricardo Tejedor Anaya
-  
-Prueba técnica - Desarrollador Front-End Junior
-
----
-
-*Esta aplicación demuestra competencias en desarrollo front-end moderno, incluyendo React, TypeScript, manejo de APIs, diseño responsive y mejores prácticas de desarrollo web.*
+Prueba técnica - Desarrollador Front-End II
