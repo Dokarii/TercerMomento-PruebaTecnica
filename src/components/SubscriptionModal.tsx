@@ -11,13 +11,13 @@ interface SubscriptionModalProps {
 }
 
 const categories = [
-  'Entertainment',
-  'Music',
-  'Design',
-  'Productivity',
+  'Entretenimiento',
+  'Musica',
+  'Diseño',
+  'Productividad',
   'Gaming',
-  'Education',
-  'Other',
+  'Educacion',
+  'Otro',
 ];
 
 const statuses = ['active', 'inactive', 'cancelled'];

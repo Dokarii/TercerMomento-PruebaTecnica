@@ -15,34 +15,24 @@
   ],
   "subscriptions": [
     {
-      "id": 1,
-      "userId": 1,
-      "name": "Netflix",
-      "cost": 15.99,
-      "category": "Entertainment",
-      "renewalDate": "2024-02-15",
-      "status": "active",
-      "description": "Streaming service for movies and TV shows"
-    },
-    {
-      "id": 2,
       "userId": 1,
       "name": "Spotify Premium",
       "cost": 9.99,
       "category": "Music",
       "renewalDate": "2024-01-28",
       "status": "active",
-      "description": "Music streaming service"
+      "description": "Servicio de streaming de música",
+      "id": 2
     },
     {
-      "id": 3,
       "userId": 1,
       "name": "Adobe Creative Cloud",
       "cost": 52.99,
       "category": "Design",
       "renewalDate": "2024-03-10",
       "status": "active",
-      "description": "Creative software suite"
+      "description": "Paquete de diseño",
+      "id": 3
     },
     {
       "id": 4,
@@ -53,6 +43,16 @@
       "renewalDate": "2024-02-20",
       "status": "active",
       "description": "Disney streaming service"
+    },
+    {
+      "userId": 1,
+      "name": "Netflix",
+      "cost": 20,
+      "category": "Entertainment",
+      "renewalDate": "2025-07-10",
+      "status": "active",
+      "description": "",
+      "id": 5
     }
   ]
 }

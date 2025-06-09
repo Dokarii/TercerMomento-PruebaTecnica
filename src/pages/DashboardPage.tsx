@@ -19,7 +19,7 @@ export const DashboardPage = (): JSX.Element => {
   const [editingSubscription, setEditingSubscription] = useState<Subscription | undefined>();
   const [isLoading, setIsLoading] = useState(true);
 
-  const categories = ['All', 'Entertainment', 'Music', 'Design', 'Productivity', 'Gaming', 'Education', 'Other'];
+  const categories = ['Todas', 'Entretenimiento', 'Musica', 'Diseño', 'Productividad', 'Gaming', 'Educacion', 'Otro'];
 
   useEffect(() => {
     loadSubscriptions();
@@ -36,8 +36,8 @@ export const DashboardPage = (): JSX.Element => {
       const data = await api.getSubscriptions(user.id);
       setSubscriptions(data);
     } catch (error) {
-      console.error('Error loading subscriptions:', error);
-      Swal.fire('Error', 'Failed to load subscriptions', 'error');
+      console.error('Error al cargar suscripciones:', error);
+      Swal.fire('Error', 'Error al cargar suscripciones:', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -53,7 +53,7 @@ export const DashboardPage = (): JSX.Element => {
       );
     }
 
-    if (selectedCategory !== 'All') {
+    if (selectedCategory !== 'Todas') {
       filtered = filtered.filter(sub => sub.category === selectedCategory);
     }
 
@@ -67,16 +67,16 @@ export const DashboardPage = (): JSX.Element => {
           ...subscriptionData,
           id: editingSubscription.id,
         });
-        Swal.fire('Success', 'Subscription updated successfully!', 'success');
+        Swal.fire('Listo', 'Suscripción actualizada correctamente!', 'success');
       } else {
         await api.createSubscription(subscriptionData);
-        Swal.fire('Success', 'Subscription added successfully!', 'success');
+        Swal.fire('Listo', 'Suscripción añadida correctamente!', 'success');
       }
       loadSubscriptions();
       setEditingSubscription(undefined);
     } catch (error) {
-      console.error('Error saving subscription:', error);
-      Swal.fire('Error', 'Failed to save subscription', 'error');
+      console.error('Error al guardar suscripción:', error);
+      Swal.fire('Error', 'Error al guardar suscripción', 'error');
     }
   };
 
@@ -87,23 +87,23 @@ export const DashboardPage = (): JSX.Element => {
 
   const handleDeleteSubscription = async (id: number) => {
     const result = await Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Estás seguro?',
+      text: "No pdrás revertir esta acción",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#ef4444',
       cancelButtonColor: '#6b7280',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Sí, eliminar',
     });
 
     if (result.isConfirmed) {
       try {
         await api.deleteSubscription(id);
         loadSubscriptions();
-        Swal.fire('Deleted!', 'Your subscription has been deleted.', 'success');
+        Swal.fire('Eliminado', 'La suscripción ha sido eliminada', 'success');
       } catch (error) {
-        console.error('Error deleting subscription:', error);
-        Swal.fire('Error', 'Failed to delete subscription', 'error');
+        console.error('Error al eliminar suscripción.', error);
+        Swal.fire('Error', 'Error al eliminar suscripción.', 'error');
       }
     }
   };
@@ -130,7 +130,7 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm font-medium">Monthly Cost</p>
+                <p className="text-blue-100 text-sm font-medium">Gastos por mes</p>
                 <p className="text-2xl font-bold">${totalMonthlyCost.toFixed(2)}</p>
               </div>
               <DollarSign className="h-8 w-8 text-blue-200" />
@@ -140,7 +140,7 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-emerald-100 text-sm font-medium">Yearly Cost</p>
+                <p className="text-emerald-100 text-sm font-medium">Gasto anual</p>
                 <p className="text-2xl font-bold">${totalYearlyCost.toFixed(2)}</p>
               </div>
               <TrendingUp className="h-8 w-8 text-emerald-200" />
@@ -150,7 +150,7 @@ export const DashboardPage = (): JSX.Element => {
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-orange-100 text-sm font-medium">Renewals Soon</p>
+                <p className="text-orange-100 text-sm font-medium">Pronta renovación</p>
                 <p className="text-2xl font-bold">{upcomingRenewals}</p>
               </div>
               <Calendar className="h-8 w-8 text-orange-200" />
@@ -197,12 +197,12 @@ export const DashboardPage = (): JSX.Element => {
               className="bg-gradient-to-r from-blue-600 to-emerald-500 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-emerald-600 flex items-center space-x-2 transition-all duration-200 font-medium"
             >
               <Plus className="h-4 w-4" />
-              <span>Add Subscription</span>
+              <span>Añadir suscripción</span>
             </button>
           </div>
         </div>
 
-        {/* Subscriptions Grid */}
+        {/* Cuadrícula de Suscripciones */}
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -212,7 +212,7 @@ export const DashboardPage = (): JSX.Element => {
             <div className="text-gray-400 mb-4">
               <Calendar className="h-12 w-12 mx-auto" />
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No subscriptions found</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">No se encontraron suscripciones</h3>
             <p className="text-gray-500 mb-6">
               {searchTerm || selectedCategory !== 'All'
                 ? 'Try adjusting your search or filter criteria.'
@@ -227,7 +227,7 @@ export const DashboardPage = (): JSX.Element => {
                 className="bg-gradient-to-r from-blue-600 to-emerald-500 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-emerald-600 inline-flex items-center space-x-2 transition-all duration-200"
               >
                 <Plus className="h-4 w-4" />
-                <span>Add Your First Subscription</span>
+                <span>Añadir una suscripción</span>
               </button>
             )}
           </div>
